@@ -1,6 +1,6 @@
 import React from 'react'
 import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom'
-import Menu from './components/Menu'
+import Menu from './components/App'
 
 export default class Root extends React.Component {
 

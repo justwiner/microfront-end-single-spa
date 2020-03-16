@@ -34,7 +34,7 @@ const prodDependencies = {
   }
 }
 
-const devMode = true // you will need to figure out a way to use a set of production dependencies instead
+const devMode = true
 if (devMode) {
   insertNewImportMap(devDependencies)
 } else {

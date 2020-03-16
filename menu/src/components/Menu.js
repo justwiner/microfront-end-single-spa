@@ -1,6 +1,6 @@
 import React from 'react'
 import {Menu, Icon} from 'antd'
-import { Link } from '@reach/router'
+import { Link } from 'react-router-dom'
 const MenuItem = Menu.Item
 
 export default class Menu_ extends React.Component {
