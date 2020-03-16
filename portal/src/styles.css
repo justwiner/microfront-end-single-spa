@@ -8,6 +8,7 @@ body {
   margin-left: 300px;
   width: calc(100% - 300px);
   height: 100%;
+  padding-left: 50px;
 }
 
 #menu {

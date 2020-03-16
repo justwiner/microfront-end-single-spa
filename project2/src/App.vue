@@ -1,16 +1,15 @@
 <template>
-  <div id="vue">
-    <img alt="Vue logo" src="http://localhost:8237/img/logo.png">
+  <div id="app">
+    <img alt="Vue logo" src="./assets/logo.png">
     <HelloWorld msg="Welcome to Your Vue.js App"/>
   </div>
 </template>
 
 <script>
 import HelloWorld from './components/HelloWorld.vue'
-import logo from './assets/logo.png'
 
 export default {
-  name: 'app',
+  name: 'App',
   components: {
     HelloWorld
   }
@@ -18,8 +17,8 @@ export default {
 </script>
 
 <style>
-#vue {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+#app {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;

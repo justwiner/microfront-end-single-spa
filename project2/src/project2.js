@@ -1,23 +1,18 @@
+import './set-public-path';
 import Vue from 'vue';
 import singleSpaVue from 'single-spa-vue';
-import App from './App.vue'
+
+import App from './App.vue';
+
+Vue.config.productionTip = false;
 
 const vueLifecycles = singleSpaVue({
   Vue,
   appOptions: {
-    el: '#vue',
-    render: r => r(App)
-  } 
+    render: (h) => h(App),
+  },
 });
 
-export const bootstrap = [
-  vueLifecycles.bootstrap,
-];
-
-export const mount = [
-  vueLifecycles.mount,
-];
-
-export const unmount = [
-  vueLifecycles.unmount,
-];
+export const bootstrap = vueLifecycles.bootstrap;
+export const mount = vueLifecycles.mount;
+export const unmount = vueLifecycles.unmount;
