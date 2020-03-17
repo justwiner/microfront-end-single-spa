@@ -9,9 +9,9 @@ export default class App extends React.Component {
         return (
             <HashRouter>
                 <Switch>
-                    <Route exact path="/" component={HomePage}/>
-                    <Route exact path="/page1" component={Page1}/>
-                    <Route exact path="/page2" component={Page2}/>
+                    <Route exact path="/project1" component={HomePage}/>
+                    <Route exact path="/project1/page1" component={Page1}/>
+                    <Route exact path="/project1/page2" component={Page2}/>
                 </Switch>
             </HashRouter>
         )

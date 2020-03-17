@@ -1,19 +1,13 @@
-export function prefix(location, ...prefixes) {
-    return prefixes.some(
-      prefix => (
-        location.href.indexOf(`${location.origin}/#/${prefix}`) !== -1
-      )
+function prefix(location, ...prefixes) {
+  return prefixes.some(
+    prefix => (
+      location.href.indexOf(`${location.origin}/#/${prefix}`) !== -1
     )
-  }
-  
-  export function menu(location) {
-    return true
-  }
+  )
+}
 
-  export function project1(location) {
-    return prefix(location, '', 'page1', 'page2')
+export default function isActive (name) {
+  return (location) => {
+    return prefix(location, name)
   }
-
-  export function project2(location) {
-    return prefix(location, 'page3', 'page4')
-  }
+}
