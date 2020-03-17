@@ -1,4 +1,4 @@
-import './set-public-path';
+// import './set-public-path';
 import Vue from 'vue';
 import singleSpaVue from 'single-spa-vue';
 
@@ -10,6 +10,7 @@ const vueLifecycles = singleSpaVue({
   Vue,
   appOptions: {
     render: (h) => h(App),
+    el: '#vue',
   },
 });
 
