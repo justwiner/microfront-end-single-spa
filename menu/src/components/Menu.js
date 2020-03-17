@@ -11,23 +11,27 @@ export default class Menu_ extends React.Component {
                 <Menu>
                     <MenuItem key="1">
                         <Icon type="pie-chart"/>
-                        <Link to='/' style={{display: 'inline'}}>主页</Link>
+                        <Link to='/project1' style={{display: 'inline'}}>Project1(REACT)-主页</Link>
                     </MenuItem>
                     <MenuItem key="2">
                         <Icon type="desktop"/>
-                        <Link to='/page1' style={{display: 'inline'}}>页面1</Link>
+                        <Link to='/project1/page1' style={{display: 'inline'}}>Project1(REACT)-页面1</Link>
                     </MenuItem>
                     <MenuItem key="32">
                         <Icon type="desktop"/>
-                        <Link to='/page2' style={{display: 'inline'}}>页面2</Link>
+                        <Link to='/project1/page2' style={{display: 'inline'}}>Project1(REACT)-页面2</Link>
                     </MenuItem>
                     <MenuItem key="4">
                         <Icon type="desktop"/>
-                        <Link to='/page3' style={{display: 'inline'}}>页面3</Link>
+                        <Link to='/project2' style={{display: 'inline'}}>Project2(VUE)-主页</Link>
                     </MenuItem>
                     <MenuItem key="5">
                         <Icon type="desktop"/>
-                        <Link to='/page4' style={{display: 'inline'}}>页面4</Link>
+                        <Link to='/project2/modulesA' style={{display: 'inline'}}>Project2(VUE)-模块A</Link>
+                    </MenuItem>
+                    <MenuItem key="6">
+                        <Icon type="desktop"/>
+                        <Link to='/project2/modulesA/about' style={{display: 'inline'}}>Project2(VUE)-模块A-关于</Link>
                     </MenuItem>
                 </Menu>
             </div>
