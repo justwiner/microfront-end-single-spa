@@ -1,5 +1,10 @@
 window.SystemJS = window.System
+import config from '../config.js'
 
+/**
+ * 注入命名模块，添加进index.html
+ * @param {}} newMapJSON 
+ */
 function insertNewImportMap(newMapJSON) {
   const newScript = document.createElement('script')
   newScript.type = 'systemjs-importmap'
@@ -11,32 +16,39 @@ function insertNewImportMap(newMapJSON) {
     newScript
   )
 }
-
-const devDependencies = {
-  imports: {
-    react: 'http://localhost:8000/react.development.js',
-    'react-dom': 'http://localhost:8000/react-dom.development.js',
-    'react-dom/server': 'http://localhost:8000/react-dom-server.browser.development.js',
-    'single-spa': 'http://localhost:8000/single-spa.min.js',
-    lodash: 'http://localhost:8000/lodash.js',
-    rxjs: 'http://localhost:8000/rxjs.umd.js',
-  }
+let commonDepsImportMap = {}
+for (let commonDep in config["common-deps"][process.env.NODE_ENV]) {
+  let commonDepObj = config["common-deps"][process.env.NODE_ENV][commonDep]
+  commonDepsImportMap[commonDep] = `${
+    process.env.NODE_ENV === 'development'
+    ? config["common-deps-origin"][process.env.NODE_ENV]
+    : '/common-deps-static'
+  }${commonDepObj}`
+}
+const dependencies = {
+  imports: commonDepsImportMap
 }
 
-const prodDependencies = {
-  imports: {
-    react: 'http://localhost:8000/react.production.min.js',
-    'react-dom': 'http://localhost:8000/react-dom.production.min.js',
-    'react-dom/server': 'http://localhost:8000/react-dom-server.browser.production.min.js',
-    'single-spa': 'http://localhost:8000/single-spa.min.js',
-    lodash: 'http://localhost:8000/lodash.min.js',
-    rxjs: 'http://localhost:8000/rxjs.umd.min.js',
-  }
+let componentsImportMap = {}
+for (let component in config.components) {
+  let componentObj = config.components[component]
+  componentsImportMap[componentObj.moduleName] = `${
+    process.env.NODE_ENV === 'development'
+    ? componentObj.origin
+    : (component === 'portal' ? '' : ('/' + component))
+  }${componentObj.entry}`
+}
+const componentEntrys = {
+  imports: componentsImportMap
 }
 
-const devMode = true
-if (devMode) {
-  insertNewImportMap(devDependencies)
-} else {
-  insertNewImportMap(prodDependencies)
-}
+/**
+ * 根据配置文件
+ * 加载子模块的js入口文件
+ */
+insertNewImportMap(componentEntrys)
+/**
+ * 根据配置文件
+ * 加载公共模块依赖
+ */
+insertNewImportMap(dependencies)

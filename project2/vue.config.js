@@ -1,13 +1,12 @@
-const webpack = require('webpack')
 const path = require('path');
 
 module.exports = {
-    publicPath: 'http://localhost:8237',
+    publicPath: process.env.NODE_ENV === 'development' ? 'http://localhost:8237' : '/project2',
     chainWebpack: config => {
         config.entryPoints.clear()
         config.entry('project2').add(process.env.VUE_APP_ENTRY).end()
-        if (process.env.VUE_APP_CURRENTMODE === 'dev') {
-            config.output.filename('project2.js').library('project2').libraryTarget('umd').end()
+        if (process.env.VUE_APP_CURRENTMODE === 'portal') {
+            config.output.filename('project2.js').library('project2').libraryTarget('amd').end()
         } else {
             config.output.filename('project2.js').library('project2')
         }
@@ -24,5 +23,5 @@ module.exports = {
             }
         }))
     },
-    outputDir: path.resolve(__dirname, 'build/project2')
+    outputDir: path.resolve(__dirname, '../portal/build/project2')
 }

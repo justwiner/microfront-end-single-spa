@@ -6,7 +6,7 @@ module.exports = {
   entry: './src/common-deps.js',
   output: {
     filename: 'common-deps.js',
-    path: path.resolve(__dirname, 'build/common-deps'),
+    path: path.resolve(__dirname, '../build/common-deps'),
     chunkFilename: '[name].js',
   },
   mode: 'production',
@@ -21,9 +21,9 @@ module.exports = {
   },
   devtool: 'sourcemap',
   plugins: [
-    new CleanWebpackPlugin(['build/common-deps/']),
+    new CleanWebpackPlugin(['../build/common-deps/']),
     CopyWebpackPlugin([
-      {from: path.resolve(__dirname, 'src/common-deps.js')}
+      {from: path.resolve(__dirname, '../src/common-deps.js')}
     ]),
   ],
   module: {

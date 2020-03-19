@@ -1,5 +1,4 @@
 /* eslint-env node */
-const webpack = require('webpack')
 const path = require('path');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
@@ -10,7 +9,7 @@ module.exports = {
     filename: 'menu.js',
     library: 'menu',
     libraryTarget: 'amd',
-    path: path.resolve(__dirname, 'build/menu'),
+    path: path.resolve(__dirname, '../portal/build/menu'),
   },
   mode: 'production',
   module: {
@@ -60,9 +59,9 @@ module.exports = {
     ],
   },
   plugins: [
-    new CleanWebpackPlugin(['build/menu']),
+    new CleanWebpackPlugin(['../portal/build/menu']),
     new CopyWebpackPlugin([
-      {from: path.resolve(__dirname, 'src/Menu.js')}
+      {from: path.resolve(__dirname, 'src/menu.js')}
     ]),
   ],
   devtool: 'source-map',

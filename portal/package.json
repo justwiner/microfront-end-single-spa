@@ -6,11 +6,11 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "concurrently \"npm run start:config\" \"npm run start:common-deps\"",
-    "start:config": "webpack-dev-server --config ./webpack.config.config.dev.js --port 8233",
-    "start:common-deps": "webpack-dev-server --config ./webpack.common-deps.config.dev.js --port 8234",
+    "start:config": "cross-env NODE_ENV=development webpack-dev-server --config ./build_conf/webpack.config.config.dev.js --port 8233",
+    "start:common-deps": "cross-env NODE_ENV=development webpack-dev-server --config ./build_conf/webpack.common-deps.config.dev.js --port 8234",
     "build": "npm run build:config && npm run build:common-deps",
-    "build:config": "webpack --config ./webpack.config.config.js -p",
-    "build:common-deps": "webpack --config ./webpack.common-deps.config.js -p"
+    "build:config": "cross-env NODE_ENV=production webpack --config ./build_conf/webpack.config.config.js -p",
+    "build:common-deps": "cross-env NODE_ENV=production webpack --config ./build_conf/webpack.common-deps.config.js -p"
   },
   "keywords": [],
   "author": "",
@@ -24,7 +24,9 @@
     "clean-webpack-plugin": "0.1.19",
     "concurrently": "^4.1.1",
     "copy-webpack-plugin": "4.5.2",
+    "cross-env": "^7.0.2",
     "css-loader": "1.0.0",
+    "html-webpack-plugin": "^3.2.0",
     "style-loader": "0.23.0",
     "webpack": "4.17.1",
     "webpack-cli": "3.1.0",
