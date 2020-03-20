@@ -1,7 +1,21 @@
 import isActive from './activityFns.js'
 import * as singleSpa from 'single-spa'
+import config from '../config.js'
 
-singleSpa.registerApplication('menu', () => SystemJS.import('@portal/menu'), () => {return true})
-singleSpa.registerApplication('project1', () => SystemJS.import('@portal/project1'), isActive('project1'))
-singleSpa.registerApplication('project2', () => SystemJS.import('@portal/project2'), isActive('project2'))
+/**
+ * 根据配置文件，
+ * 注册single-spa模块：registerApplication
+ * 注入router判断逻辑
+ */
+for (let component in config.components) {
+    if (component === 'portal') continue
+    let componentObj = config.components[component]
+    singleSpa.registerApplication(component, () => SystemJS.import(componentObj.moduleName), () => {
+        if (componentObj.router === true) {
+            return componentObj.router
+        } else {
+            return isActive(componentObj.router)
+        }
+    })
+}
 singleSpa.start()

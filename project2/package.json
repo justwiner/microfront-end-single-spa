@@ -1,49 +1,45 @@
 {
-  "name": "@portal/project2",
-  "version": "0.1.0",
-  "private": true,
-  "scripts": {
-    "dev": "vue-cli-service serve --mode dev",
-    "dev:local": "vue-cli-service serve --mode local",
-    "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
-  },
-  "dependencies": {
-    "core-js": "^3.6.4",
-    "single-spa-vue": "^1.5.2",
-    "systemjs-webpack-interop": "^1.1.0",
-    "vue": "^2.6.11"
-  },
-  "devDependencies": {
-    "@vue/cli-plugin-babel": "~4.2.0",
-    "@vue/cli-plugin-eslint": "~4.2.0",
-    "@vue/cli-service": "~4.2.0",
-    "axios": "^0.19.2",
-    "babel-eslint": "^10.0.3",
-    "element-ui": "^2.13.0",
-    "eslint": "^6.7.2",
-    "eslint-plugin-vue": "^6.1.2",
-    "vue-cli-plugin-single-spa": "~1.1.0",
-    "vue-router": "^3.1.6",
-    "vue-template-compiler": "^2.6.11",
-    "vuex": "^3.1.3"
-  },
-  "eslintConfig": {
-    "root": true,
-    "env": {
-      "node": true
+    "name": "@portal/project2",
+    "version": "0.1.0",
+    "private": true,
+    "scripts": {
+        "dev": "vue-cli-service serve --mode portal",
+        "dev:local": "vue-cli-service serve --mode local",
+        "build": "vue-cli-service build --mode prod",
+        "lint": "vue-cli-service lint"
     },
-    "extends": [
-      "plugin:vue/essential",
-      "eslint:recommended"
-    ],
-    "parserOptions": {
-      "parser": "babel-eslint"
+    "dependencies": {
+        "core-js": "^3.6.4",
+        "single-spa-vue": "^1.5.2",
+        "systemjs-webpack-interop": "^1.1.0",
+        "vue": "^2.6.11"
     },
-    "rules": {}
-  },
-  "browserslist": [
-    "> 1%",
-    "last 2 versions"
-  ]
+    "devDependencies": {
+        "@vue/cli-plugin-babel": "~4.2.0",
+        "@vue/cli-plugin-eslint": "~4.2.0",
+        "@vue/cli-service": "~4.2.0",
+        "axios": "^0.19.2",
+        "babel-eslint": "^10.0.3",
+        "element-ui": "^2.13.0",
+        "eslint": "^6.7.2",
+        "eslint-plugin-vue": "^6.1.2",
+        "vue-cli-plugin-single-spa": "~1.1.0",
+        "vue-router": "^3.1.6",
+        "vue-template-compiler": "^2.6.11",
+        "vuex": "^3.1.3"
+    },
+    "eslintConfig": {
+        "root": true,
+        "env": {
+            "node": true
+        },
+        "extends": [
+            "plugin:vue/essential", "eslint:recommended"
+        ],
+        "parserOptions": {
+            "parser": "babel-eslint"
+        },
+        "rules": {}
+    },
+    "browserslist": ["> 1%", "last 2 versions"]
 }

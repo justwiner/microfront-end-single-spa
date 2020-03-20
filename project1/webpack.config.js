@@ -1,5 +1,4 @@
 /* eslint-env node */
-const webpack = require('webpack')
 const path = require('path');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
@@ -10,7 +9,7 @@ module.exports = {
     filename: 'project1.js',
     library: 'project1',
     libraryTarget: 'amd',
-    path: path.resolve(__dirname, 'build/project1'),
+    path: path.resolve(__dirname, '../portal/build/project1'),
   },
   mode: 'production',
   module: {
@@ -60,7 +59,7 @@ module.exports = {
     ],
   },
   plugins: [
-    new CleanWebpackPlugin(['build/homePage']),
+    new CleanWebpackPlugin(['../portal/build/homePage']),
     new CopyWebpackPlugin([
       {from: path.resolve(__dirname, 'src/project1.js')}
     ]),
